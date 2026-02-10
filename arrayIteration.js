@@ -3,10 +3,10 @@ const numbers2 = numbers1.map(myFunctionc);
 
 //map is a method that creates a new array from calling a function for every array element.
 
-function myFunctionc(value, index, array) {
+function myFunctionc(value) {
   return value * 2;
 }
-const myArr = [1, 2, 3, 4, 5, 6];
+const myArr = [1, 2, 3, 4, 5, 6,[9]];
 const newArr = myArr.flatMap((x) => x * 2); 
 // flatMap is a method that creates a new array from calling a function for every array element.
 

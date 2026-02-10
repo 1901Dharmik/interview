@@ -7,10 +7,8 @@ console.log("array method 2 ", names);
 
 // opertion on array
 
-
 const fruits = ["Banana", "Orange", "Apple", "Mango"]; // array of string
 fruits.sort(); // sorting array
-
 
 fruits.reverse(); // reverse the array
 
@@ -72,19 +70,19 @@ console.log(index);
 let slice = fruits.slice(1, 3); // slice array
 console.log("slice array", slice);
 
+let split = "Banana,Orange,Apple,Mango".split(","); // split string into array
+console.log("split string into array", split); 
 
- const newFruits = [ 'Orange', 'Lemon', 'Kiwi', 'Apple' ]
+const newFruits = ["Orange", "Lemon", "Kiwi", "Apple"];
 let splice = newFruits.splice(1, 2, "Lemon", "Kiwi"); // remove element from array
-console.log("iam split array",splice);
+console.log("iam split array", splice); // ["Lemon", "Kiwi"]
 
 // start: The index at which to start changing the array.
 // deleteCount: The number of elements to remove from the array.
 // item1, item2, ...: The elements to add to the array, starting at the start index.
-array.splice(start, deleteCount, item1, item2)
-
+// array.splice(start, deleteCount, item1, item2);
 
 let sort = fruits.sort(); // sort array asc
-
 
 // The difference between toReversed() and reverse() is that the first method creates a new array, keeping the original array unchanged, while the last method alters the original array.
 
@@ -128,10 +126,10 @@ const newNums = myNums
 console.log("***********");
 console.log(newNums);
 
-let arrayReduce = fruits.reduce(function (previousValue, currentValue) {
+let arrayReduce = myNums.reduce(function (previousValue, currentValue) {
   // reduce method
   return previousValue + currentValue;
-});
+}, 0);
 console.log(arrayReduce);
 
 // reduce Method
@@ -140,32 +138,31 @@ const totalNumbs = Numbers.reduce(function (acc, currval) {
   console.log(`acc: ${acc} and currval : ${currval}`);
   return acc + currval;
 }, 0);
-console.log('reduce methods', totalNumbs)
-const Total = Numbers.reduce((acc,currval)=> acc + currval,0)
-console.log('reduce methods', Total)
+console.log("reduce methods", totalNumbs);
+const Total = Numbers.reduce((acc, currval) => acc + currval, 0);
+console.log("reduce methods", Total);
 
 // shoping Cart Total Find
 const cart = [
   {
-    itemName : 'Js Course',
-    price: 2999
+    itemName: "Js Course",
+    price: 2999,
   },
   {
-    itemName : 'pythod Course',
-    price: 999
+    itemName: "pythod Course",
+    price: 999,
   },
   {
-    itemName : 'node Course',
-    price: 5999
+    itemName: "node Course",
+    price: 5999,
   },
   {
-    itemName : 'react Course',
-    price: 12999
-  }
-
-]
-const myCart = cart.reduce((acc,item)=> acc + item.price,0)
-console.log('reduce methods', myCart)
+    itemName: "react Course",
+    price: 12999,
+  },
+];
+const myCart = cart.reduce((acc, item) => acc + item.price, 0);
+console.log("reduce methods", myCart);
 
 let arrayFind = fruits.find(function (item) {
   // find method
@@ -199,114 +196,113 @@ function myFunction(value, index, array) {
 }
 console.log(first);
 
-
+const data = "lorem ipsum"
+console.log(data.toLocaleLowerCase) // split string into array
 
 // remove second last element in array
 
-let arr = [1,2,3,4,5,6,7];
-arr.splice(-2,1); // first index to last index
+let arr = [1, 2, 3, 4, 5, 6, 7];
+arr.splice(-2, 1); // first index to last index
 console.log(arr);
 
-
 // remove element of index
-let arr2 = [1,2,3,4,5,6,7];
+let arr2 = [1, 2, 3, 4, 5, 6, 7];
 // arr2.splice(2,1);
 // arr2.splice(arr2.length - 2, 1)
-arr2 = [...arr2.slice(0, - 2), ...arr2.slice(-1)]
-console.log('a iam arr2',arr2);
+arr2 = [...arr2.slice(0, -2), ...arr2.slice(-1)];
+console.log("a iam arr2", arr2);
 
 // desc order sort
-let desc = arr2.sort((a,b) => { // also use reverce method
-  return b-a
-})
-console.log("i am a desc array :",desc);
-
+let desc = arr2.sort((a, b) => {
+  // also use reverse method
+  return b - a;
+});
+console.log("i am a desc array :", desc);
 
 // maping array
 let maparray = arr2.map((newarray) => {
-  return newarray*2
+  return newarray * 2;
 });
 console.log(maparray);
 
-
 // filtered Method
-let filtered = maparray.filter((fill) =>{
-  return fill >= 10
-})
+let filtered = maparray.filter((fill) => {
+  return fill >= 10;
+});
 console.log(filtered);
 
-// reduce method 
+// reduce method
 
-let sum = arr2.reduce((acc,cur) =>{
-  return acc + cur
-
-},0)
+let sum = arr2.reduce((acc, cur) => {
+  return acc + cur;
+}, 0);
 console.log(sum);
 
-// include method 
+// include method
 const present = arr2.includes(4);
 console.log(present);
 
-const somepresent = arr2.some(number => number % 2);
+const somepresent = arr2.some((number) => number % 2);
 console.log(somepresent);
-
 
 // even and odd no find
 
 const allnumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const evenNumbers = allnumbers.filter(number => number % 2 === 0);
-const oddNumbers = allnumbers.filter(number => number % 2 !== 0);
+const evenNumbers = allnumbers.filter((number) => number % 2 === 0);
+const oddNumbers = allnumbers.filter((number) => number % 2 !== 0);
 console.log(evenNumbers);
 console.log(oddNumbers);
-
-
 
 var myArray = [4, -5, 0, 2, -67, 8, 10, -34];
 // find neg nums
 function getNegativeNumbers(array) {
-  return array.filter(function(value) {
+  return array.filter(function (value) {
     return value < 0;
   });
 }
-console.log(getNegativeNumbers(myArray));
+console.log(getNegativeNumbers(myArray)); // -5, -67, -34
 
-var myArray = [4, -5, 0, 2, -67, 8, 10, -34 ];
-
+var myArray = [4, -5, 0, 2, -67, 8, 10, -34];
 
 // find neg nums with for loop
 function getNegativeNumbers(array) {
+  var negatives = [];
 
-    var negatives = [];
-
-    for (var i = 0; i < array.length; i++) {
-        if (array[i] < 0) {
-            negatives.push(array[i]);
-        }
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] < 0) {
+      negatives.push(array[i]);
     }
-    return negatives;
-
+  }
+  return negatives;
 }
 console.log(getNegativeNumbers(myArray));
 
-var positive = [4, -5, 0, 2, -67, 8, 10, -34 ];
+var positive = [4, -5, 0, 2, -67, 8, 10, -34];
 
 // get positive Values
 function getPositiveNumbers(array) {
   var positives = [];
-  for (var i = 0; i < array.length; i++) {  
+  for (var i = 0; i < array.length; i++) {
     if (array[i] > 0) {
       positives.push(array[i]);
-      }
-      }
-      return positives;
     }
-    console.log(getPositiveNumbers(positive));
+  }
+  return positives;
+}
+console.log(getPositiveNumbers(positive));
 
-  const allnames = 'john, ashish,jkgA, LHDKjshdk, jsakhDJSDH, JAHSKJDHJW';
+const allnames = "john, ashish,jkgA, LHDKjshdk, jsakhDJSDH, JAHSKJDHJW";
 
-  const splitnames = allnames.split(',');
-  console.log(splitnames);
+const splitnames = allnames.split(",");
+console.log(splitnames);
 
-  const arr3 = [1, 2, [3, 4, [5, 6]]];
+const arr3 = [1, 2, [3, 4, [5, 6]]];
 // arr3.flat(2);
-console.log(arr3.flat(Infinity)); 
+console.log(arr3.flat(Infinity));
+
+// flatMap method
+const arr4 = [1, 2, 3, 4];
+const newArr = arr4.flatMap((x) => x * 2);
+console.log(newArr);
+console.log(arr4)
+// flatMap is similar to map, but it flattens the result by one level.

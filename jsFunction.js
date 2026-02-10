@@ -17,7 +17,7 @@ var fuctionExpression = function () {
 let a = 5;
 let djadhdgaj = function Normal() {
   console.log("name");
-}
+};
 
 // fuction Constuctor
 var fuctionConstructor = new Function("console.log('name')");
@@ -107,10 +107,14 @@ test = 10;
 console.log(test);
 var test; // only support in var keyword
 
-
-(
-  function () {
-    console.log("hello i am a iife function");
-  }
-)();
+(function () {
+  console.log("hello i am a iife function");
+})();
 // iife function
+
+const myfunc = async function () {
+  setTimeout(() => {
+    console.log("hello");
+  }, 2000);
+};
+myfunc();

@@ -23,3 +23,12 @@ class Animal {
   const dog = new Dog("Tommy");
   dog.speak(); // Tommy barks
   
+  class Cat extends Animal {
+    speak() {
+      console.log(`${this.name} meows`);
+    }
+  }
+  
+  const cat = new Cat("Whiskers");
+  cat.speak(); // Whiskers meows
+  

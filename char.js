@@ -7,4 +7,8 @@ const person = {
       }
   }
 console.log(person.age.years);
-  let a=  12;
+  var a=  12;
+  console.log(a);
+  var a = 13;
+  console.log(a);
+  

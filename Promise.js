@@ -56,27 +56,26 @@ promiseFour
   })
   .finally(() => console.log("The promise is either resolved or rejected"));
 
+// five
 
-  // five
-  
-const promiseFive = new Promise(function(resolve, reject){
-    setTimeout(function(){
-        let error = false;
-        if (!error) {
-            resolve({username: "javascript", password: "123"})
-        } else {
-            reject('ERROR: JS went wrong')
-        }
-    }, 1000)
+const promiseFive = new Promise(function (resolve, reject) {
+  setTimeout(function () {
+    let error = false;
+    if (!error) {
+      resolve({ username: "javascript", password: "123" });
+    } else {
+      reject("ERROR: JS went wrong");
+    }
+  }, 1000);
 });
 
-async function consumePromiseFive(){
-    try {
-        const response = await promiseFive
-        console.log(response);
-    } catch (error) {
-        console.log(error);
-    }
+async function consumePromiseFive() {
+  try {
+    const response = await promiseFive;
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
 }
 consumePromiseFive();
 
@@ -92,12 +91,17 @@ consumePromiseFive();
 // }
 // getAllUsers()
 
-fetch('https://api.github.com/users/hiteshchoudhary')
-.then((response) => {
-    return response.json()
+fetch("https://api.github.com/users/hiteshchoudhary", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: "Bearer YOUR_ACCESS_TOKEN", // Replace with your actual token
+  },
 })
-.then((data) => {
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
     console.log(data);
-})
-.catch((error) => console.log(error))
-
+  })
+  .catch((error) => console.log(error));
