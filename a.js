@@ -146,6 +146,7 @@ let a = 5;
 let b = 10;
 // Swap without temp variable
 [a, b] = [b, a];
+
 console.log(a, b);
 
 // sum of digit
@@ -226,6 +227,34 @@ function createRange(start, end) {
   return Array.from({length: end - start + 1}, (_, i) => start + i);
 }
 console.log(createRange(5, 10)); // [5, 6, 7, 8, 9, 10]
+
+
+// fibonaci with return string and array 
+function fibonacci(n) { // str
+  let a = 0, b = 1;
+
+  for (let i = 0; i < n; i++) {
+    console.log(a);
+    let next = a + b;
+    a = b;
+    b = next;
+  }
+}
+
+fibonacci(10); 
+
+// arry 
+function fibonacci(n) {
+  let result = [0, 1];
+
+  for (let i = 2; i < n; i++) {
+    result[i] = result[i - 1] + result[i - 2];
+  }
+
+  return result;
+}
+
+console.log(fibonacci(10));
 
 
 

@@ -55,12 +55,11 @@ function quickSort(arr) {
     return arr;
   }
 
-  const pivot = arr[arr.length - 1];
+  const pivot = arr[0];   // 👈 first element as pivot
   const left = [];
   const right = [];
 
-  // Partition the array
-  for (let i = 0; i < arr.length - 1; i++) {
+  for (let i = 1; i < arr.length; i++) {
     if (arr[i] < pivot) {
       left.push(arr[i]);
     } else {
@@ -68,24 +67,19 @@ function quickSort(arr) {
     }
   }
 
-  // Recursively sort and combine
   return [...quickSort(left), pivot, ...quickSort(right)];
 }
-
-// Example:
 let arr2 = [5, 3, 8, 4, 2];
-console.log(quickSort(arr2)); // Output: [2, 3, 4, 5, 8]
+console.log("quick sort",quickSort(arr2)); // Output: [2, 3, 4, 5, 8]
 
 // merge sort
 function mergeSort(arr) {
   if (arr.length <= 1) {
     return arr;
   }
-
   const mid = Math.floor(arr.length / 2);
   const left = mergeSort(arr.slice(0, mid));
   const right = mergeSort(arr.slice(mid));
-
   return merge(left, right);
 }
 
@@ -103,7 +97,6 @@ function merge(left, right) {
       j++;
     }
   }
-
   return result.concat(left.slice(i)).concat(right.slice(j));
 }
 console.log(mergeSort([5, 3, 8, 4, 2]));

@@ -100,29 +100,8 @@ function lowercaseString(str) {
   return lowerCase;
 }
 
-// fine first non-repeating character
-function firstNonRepeatingChar(str) {
-  const charCount = {};
 
-  // Count occurrences of each character
-  for (let char of str) {
-    charCount[char] = (charCount[char] || 0) + 1;
-  }
-
-  // Find the first character with a count of 1
-  for (let char of str) {
-    if (charCount[char] === 1) {
-      return char;
-    }
-  }
-
-  return null; // If no non-repeating character exists
-}
-
-// Example:
-console.log(firstNonRepeatingChar("dharmik"));
-// Output: "d" (since 'd' is the first non-repeating character)
-
+// find longest word
 function findLongestWord(sentence) {
   const words = sentence.split(" ");
   let longestWord = "";
@@ -149,3 +128,5 @@ const id = setInterval(() => {
   console.log(p++);
   if (p > 3) clearInterval(id);
 }, 1000);
+
+// 

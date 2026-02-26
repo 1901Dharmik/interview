@@ -12,9 +12,7 @@ let myArray = [1, 2, 3, 4, 5];
 let reversedArray = reverseArray(myArray);
 console.log(reversedArray); // [5, 4, 3, 2, 1]
 
-
-
-// search element in array
+// search element in array (linear search for unsorted array)
 function findElementInArray(arr, target) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === target) {
@@ -127,6 +125,18 @@ function findDuplicates(arr) {
 }
 console.log(findDuplicates([1, 2, 3, 4, 5, 1, 2, 3]));
 
+function removeDuplicates(arr) {
+  let unique = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!unique.includes(arr[i])) {
+      unique.push(arr[i]);
+    }
+  }
+  return unique;
+}
+
+console.log(removeDuplicates([1, 2, 3, 4, 5, 1, 2, 3]));
+
 // find sammlest elem in arr
 function findSmallest(arr) {
   let smallest = arr[0];
@@ -238,3 +248,205 @@ function secondLargest(arr) {
   return second === -Infinity ? null : second;
 }
 console.log(secondLargest([1, 2, 3, 4, 5]));
+
+function doubleArray(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i] * arr[i];
+  }
+
+  return arr;
+}
+
+console.log(doubleArray([1, 2, 3]));
+// Output: [2, 4, 6]
+
+// move all zero at ends
+
+function moveZeros(arr) {
+  let writeIndex = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[writeIndex++] = arr[i];
+    }
+  }
+  while (writeIndex < arr.length) {
+    arr[writeIndex++] = 0;
+  }
+  return arr;
+}
+
+console.log(moveZeros([0, 1, 0, 3, 12]));
+
+// dobble array
+function doubleArray(arr) {
+  let result = [];
+  let i = 0;
+  while (i < arr.length) {
+    result[i] = arr[i] * 2;
+    i++;
+  }
+  return result;
+}
+console.log(doubleArray([1, 2, 3, 4, 5]));
+
+// sum of array
+function sumofArray(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+console.log(sumofArray([1, 2, 3, 4, 5]));
+
+// Find maximum element in array
+function findMax(arr) {
+  let max = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return max;
+}
+console.log(findMax([3, 7, 2, 9, 1]));
+
+// Find minimum element in array
+function findMin(arr) {
+  let min = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+  }
+  return min;
+}
+console.log(findMin([3, 7, 2, 9, 1]));
+
+// Remove duplicates from array
+function removeDuplicates(arr) {
+  let unique = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (unique.indexOf(arr[i]) === -1) {
+      unique.push(arr[i]);
+    }
+  }
+  return unique;
+}
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+
+// Find index of element in array
+function findIndex(arr, element) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === element) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+// Count occurrences of element in array
+function countOccurrences(arr, element) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === element) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countOccurrences([1, 2, 2, 3, 4, 4, 5], 2));
+
+// Filter even numbers from array
+function filterEven(arr) {
+  let evens = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 0) {
+      evens.push(arr[i]);
+    }
+  }
+  return evens;
+}
+console.log(filterEven([1, 2, 3, 4, 5, 6]));
+
+// Merge two arrays
+function mergeArrays(arr1, arr2) {
+  let merged = [];
+  for (let i = 0; i < arr1.length; i++) {
+    merged.push(arr1[i]);
+  }
+  for (let i = 0; i < arr2.length; i++) {
+    merged.push(arr2[i]);
+  }
+  return merged;
+}
+console.log(mergeArrays([1, 2, 3], [4, 5, 6]));
+
+// Flatten nested array (one level)
+function flatten(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      for (let j = 0; j < arr[i].length; j++) {
+        result.push(arr[i][j]);
+      }
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+console.log(
+  flatten([
+    [1, 2],
+    [3, 4],
+    [5, 6],
+  ]),
+);
+
+// Remove element at specific index
+function removeElement(arr, index) {
+  arr.splice(index, 1);
+  return arr;
+}
+console.log(removeElement([1, 2, 3, 4, 5], 2));
+
+function removeAtIndex(arr, index) {
+  if (index < 0 || index >= arr.length) {
+    return arr;
+  }
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (i !== index) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+} 
+console.log(removeAtIndex([1, 2, 3, 4, 5], 2)); // Output: [1, 2, 4,5]
+
+// Insert element at specific index
+function insertElement(arr, element, index) {
+  arr.splice(index, 0, element);
+  return arr;
+}
+console.log(insertElement([1, 2, 3, 4, 5], 6, 2));
+
+// Check if two arrays are equal
+function areArraysEqual(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+// find nth element in arr
+const newarr = [1,2,3,4,5,6]
+let last = newarr[newarr.length - 1];
+console.log(last)
